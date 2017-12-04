@@ -1,4 +1,4 @@
-defmodule Challenge1 do
+defmodule Day1 do
   @moduledoc """
   Sum matching numbers
   """
@@ -8,13 +8,13 @@ defmodule Challenge1 do
 
   ## Examples
 
-      iex> Challenge1.find_match_sum("1122")
+      iex> Day1.find_match_sum("1122")
       3
-      iex> Challenge1.find_match_sum("1111")
+      iex> Day1.find_match_sum("1111")
       4
-      iex> Challenge1.find_match_sum("1234")
+      iex> Day1.find_match_sum("1234")
       0
-      iex> Challenge1.find_match_sum("91212129")
+      iex> Day1.find_match_sum("91212129")
       9
 
   """
@@ -37,7 +37,7 @@ defmodule Challenge1 do
 
   ## Examples
 
-    iex> Challenge1.get_matching_chars([1, 1, 2, 2])
+    iex> Day1.get_matching_chars([1, 1, 2, 2])
     [1, 2]
   """
   def get_matching_chars(input_chars, acc \\ []) when length(input_chars) > 1 do

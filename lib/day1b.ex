@@ -1,4 +1,4 @@
-defmodule Challenge2 do
+defmodule Day1B do
   @moduledoc """
   Sum matching numbers with arbitrary distances
   """
@@ -8,25 +8,25 @@ defmodule Challenge2 do
 
   ## Examples
 
-      iex> Challenge2.find_match_sum("1122")
+      iex> Day1B.find_match_sum("1122")
       3
 
-      iex> Challenge2.find_match_sum("1111")
+      iex> Day1B.find_match_sum("1111")
       4
 
-      iex> Challenge2.find_match_sum("1234")
+      iex> Day1B.find_match_sum("1234")
       0
 
-      iex> Challenge2.find_match_sum("91212129")
+      iex> Day1B.find_match_sum("91212129")
       9
 
-      iex> Challenge2.find_match_sum("1212", true)
+      iex> Day1B.find_match_sum("1212", true)
       6
 
-      iex> Challenge2.find_match_sum("1221", true)
+      iex> Day1B.find_match_sum("1221", true)
       0
 
-      iex> Challenge2.find_match_sum("123425", true)
+      iex> Day1B.find_match_sum("123425", true)
       4
   """
   def find_match_sum(string, halfway \\ false) do
@@ -48,10 +48,10 @@ defmodule Challenge2 do
 
   ## Examples
 
-    iex> Challenge2.get_matching_chars([1, 1, 2, 2])
+    iex> Day1B.get_matching_chars([1, 1, 2, 2])
     [1, 2]
 
-    iex> Challenge2.get_matching_chars([1,2,1,2], 2)
+    iex> Day1B.get_matching_chars([1,2,1,2], 2)
     [1, 2, 1, 2]
   """
   def get_matching_chars(input_chars, distance \\ 1) do

@@ -38,14 +38,17 @@ defmodule Day1 do
   ## Examples
 
     iex> Day1.get_matching_chars([1, 1, 2, 2])
-    [1, 2]
+    [2, 1]
+
+    iex> Day1.get_matching_chars([1, 2, 3, 4])
+    []
   """
   def get_matching_chars(input_chars, acc \\ []) when length(input_chars) > 1 do
     [ first | rest ] = input_chars
     [ next | _ ] = rest
     case { first, next, rest } do
       { ^first, ^first, rest} ->
-        get_matching_chars(rest, acc ++ [first])
+        get_matching_chars(rest, [first | acc] )
       _ ->
         get_matching_chars(rest, acc)
     end

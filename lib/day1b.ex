@@ -30,16 +30,19 @@ defmodule Day1B do
       4
   """
   def find_match_sum(string, halfway \\ false) do
-    int_array = string
+    int_array =
+      string
       |> String.split("", trim: true)
       |> Enum.map(&String.to_integer/1)
+
     distance =
       if halfway do
-        div length(int_array), 2
+        div(length(int_array), 2)
       else
         1
       end
-    Enum.sum get_matching_chars(int_array, distance)
+
+    Enum.sum(get_matching_chars(int_array, distance))
   end
 
   @doc """
@@ -56,10 +59,10 @@ defmodule Day1B do
   """
   def get_matching_chars(input_chars, distance \\ 1) do
     input_chars
-    |> Stream.with_index
-    |> Enum.filter(fn({_, index}) -> matches_comparison_digit(input_chars, index, distance) end)
-    |> Enum.unzip
-    |> fn({results, _}) -> results end.()
+    |> Stream.with_index()
+    |> Enum.filter(fn {_, index} -> matches_comparison_digit(input_chars, index, distance) end)
+    |> Enum.unzip()
+    |> (fn {results, _} -> results end).()
   end
 
   def matches_comparison_digit(chars, index, distance) do

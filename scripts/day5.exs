@@ -2,4 +2,4 @@
 
 maze = Day5.parse_string(string)
 {count, _final} = Day5.jump(maze)
-IO.puts count
+IO.puts(count)

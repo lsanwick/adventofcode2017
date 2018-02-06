@@ -1,5 +1,4 @@
 defmodule Day4 do
-
   @doc """
     Count the number of valid passphrases in a list of passphrases.
 
@@ -13,8 +12,8 @@ defmodule Day4 do
   def validate_passphrases(input) do
     input
     |> String.split("\n")
-    |> Enum.filter(&(validate_no_duplicates(&1)))
-    |> Enum.filter(&(validate_no_anagrams(&1)))
+    |> Enum.filter(&validate_no_duplicates(&1))
+    |> Enum.filter(&validate_no_anagrams(&1))
     |> length
   end
 
@@ -56,7 +55,7 @@ defmodule Day4 do
     words =
       passphrase
       |> String.split(" ")
-      |> Enum.map(&(standardize_word(&1)))
+      |> Enum.map(&standardize_word(&1))
 
     length(words) == length(Enum.uniq(words))
   end

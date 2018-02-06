@@ -3,7 +3,6 @@ defmodule Day2 do
   Find max difference between numbers in a row, then calculate a checksum by summing all differences
   """
 
-
   @doc """
   Calculate a checksum from max difference of all rows in the input
 
@@ -26,7 +25,7 @@ defmodule Day2 do
       end
 
     result
-    |> Enum.sum
+    |> Enum.sum()
   end
 
   @doc """
@@ -67,13 +66,15 @@ defmodule Day2 do
     do_row_remainder(numbers)
   end
 
-  def do_row_remainder([ num | rest ]) when length(rest) > 0 do
-    matches = Enum.filter(rest, fn(el) -> rem(num, el) == 0 || rem(el, num) == 0 end)
+  def do_row_remainder([num | rest]) when length(rest) > 0 do
+    matches = Enum.filter(rest, fn el -> rem(num, el) == 0 || rem(el, num) == 0 end)
+
     case List.first(matches) do
       nil -> do_row_remainder(rest)
       x -> if x > num, do: div(x, num), else: div(num, x)
     end
   end
+
   def do_row_remainder([]) do
     0
   end

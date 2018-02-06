@@ -19,7 +19,8 @@ defmodule Day1 do
 
   """
   def find_match_sum(string) do
-    int_array = string
+    int_array =
+      string
       |> String.split("", trim: true)
       |> Enum.map(&String.to_integer/1)
 
@@ -29,7 +30,8 @@ defmodule Day1 do
       else
         []
       end
-    Enum.sum get_matching_chars(int_array, acc)
+
+    Enum.sum(get_matching_chars(int_array, acc))
   end
 
   @doc """
@@ -44,16 +46,18 @@ defmodule Day1 do
     []
   """
   def get_matching_chars(input_chars, acc \\ []) when length(input_chars) > 1 do
-    [ first | rest ] = input_chars
-    [ next | _ ] = rest
-    case { first, next, rest } do
-      { ^first, ^first, rest} ->
-        get_matching_chars(rest, [first | acc] )
+    [first | rest] = input_chars
+    [next | _] = rest
+
+    case {first, next, rest} do
+      {^first, ^first, rest} ->
+        get_matching_chars(rest, [first | acc])
+
       _ ->
         get_matching_chars(rest, acc)
     end
   end
 
-  def get_matching_chars([], acc),  do: acc
-  def get_matching_chars([_], acc),  do: acc
+  def get_matching_chars([], acc), do: acc
+  def get_matching_chars([_], acc), do: acc
 end

@@ -9,6 +9,7 @@ defmodule Day5 do
   def jump(list, size \\ 1, index \\ 0, count \\ 0)
   def jump(list, size, index, count) when index >= size, do: {count, Map.values(list)}
   def jump(list, _size, index, count) when index < 0, do: {count, Map.values(list)}
+
   def jump(list, _size, index, count) do
     offset = Map.get(list, index, 0)
     new_offset = if offset >= 3, do: offset - 1, else: offset + 1
@@ -18,7 +19,7 @@ defmodule Day5 do
 
   def parse_string(string) do
     string
-    |> String.trim
+    |> String.trim()
     |> String.split("\n")
     |> Enum.map(&String.to_integer/1)
     |> convert_to_map
@@ -26,7 +27,7 @@ defmodule Day5 do
 
   def convert_to_map(list) do
     list
-    |> Stream.with_index
+    |> Stream.with_index()
     |> Stream.map(fn {instruction, index} -> {index, instruction} end)
     |> Map.new()
   end

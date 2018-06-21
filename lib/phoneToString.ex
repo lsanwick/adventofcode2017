@@ -68,13 +68,13 @@ defmodule PhoneToString do
   """
   def call(input) do
     input
-    |> String.split("", trim: true)
+    |> String.codepoints()
     |> get_permutations
   end
 
   def call_slow(input) do
     input
-    |> String.split("", trim: true)
+    |> String.codepoints()
     |> get_permutations_slow
   end
 end
